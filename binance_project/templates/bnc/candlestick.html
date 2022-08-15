@@ -1,0 +1,79 @@
+{% extends "main/base.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+
+<div class="display-5 mb-5 text-center">Candlestick Streams</div>
+
+<form class="binance-form" method="POST"
+  hx-post="{% url 'price_monitoring' %}"
+  hx-target="#candlestick-info-chart">
+  
+  {% csrf_token %}
+    <h5>Enter some inputs for the websocket stream</h5>
+    <div class="row mb-1">
+      <div class="col-sm-12">
+        <div class="input-group input-group-sm panel">
+          <span class="input-group-addon col-form-label-sm">Symbol</span>
+          <input type="text" class="form-control" name="symbol" placeholder="e.g. BTCUSDT (default)" title="Cryptocurrency symbol" />
+        </div>
+      </div>
+    </div>
+    
+    <div class="row mb-1">
+      <div class="col-sm-12">
+        <div class="input-group input-group-sm panel">
+          <span class="input-group-addon col-form-label-sm">Min. price</span>
+          <input type="number" min="0" class="form-control text-sm" name="price"
+            title="Min. price to monitor." placeholder="e.g. 24300" step="any"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-1">
+      <div class="col-sm-12">
+        <div class="input-group input-group-sm panel">
+          <span class="input-group-addon col-form-label-sm">Limit</span>
+          <input type="number" min="1" max="1000" class="form-control text-sm" name="limit" title="Max. number of datapoints."
+            placeholder="Max. number of historical datapoints)" step="any" />
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-1">
+      <div class="col-sm-12">
+        <div class="input-group input-group-sm panel">
+          <span class="input-group-addon col-form-label-sm">Interval</span>
+          <select class="form-select form-select-sm mb-2" name="interval" id="interval">
+            <option disabled selected>Time interval</option>
+            <option>1m</option>
+            <option>3m</option>
+            <option>5m</option>
+            <option>15m</option>
+            <option>30m</option>
+            <option>1h</option>
+            <option>2h</option>
+            <option>4h</option>
+            <option>6h</option>
+            <option>8h</option>
+            <option>12h</option>
+            <option>1d</option>
+            <option>3d</option>
+            <option>1w</option>
+            <option>1M</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-5">
+      <button id="monitor-price" class="btn btn-outline-secondary btn-sm">Monitor price</button>
+    </div>
+  
+</form>
+
+<div id="candlestick-info-chart">
+  {% include 'bnc/candlestick_charts.html' %}
+</div>
+
+{% endblock %}

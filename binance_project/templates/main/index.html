@@ -1,0 +1,25 @@
+{% extends "main/base.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+  
+  <div class="m-5"></div>
+  {% if user.is_authenticated %}
+    <h3 class="mb-3">Welcome {{user}}</h3>
+    <div class="d-flex mb-5">
+      <button class="btn btn-outline-secondary"
+        hx-post="{% url 'new_symbols' %}"
+        hx-target="#new-symbols">Check for new symbols
+      </button>
+    </div>
+    
+    {% include 'bnc/symbols.html' %}
+
+  {% else %}
+    <h4>Please login to see more functionalities customized for you.</h4>
+    <h5>username : JerryTheMouse</h5>
+    <h5>password : django123</h5>
+  {% endif %}
+  
+{% endblock %}
+

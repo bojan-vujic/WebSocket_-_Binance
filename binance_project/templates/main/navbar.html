@@ -1,0 +1,30 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <img src="/media/favicon.ico" width="30" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link {% if request.path == '/' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Home</a>
+        
+        <a class="nav-link {% if request.path == '/candlestick/' %}active{% endif %}" aria-current="page" href="{% url 'candlestick' %}">Candlestick</a>
+
+        <a class="nav-link {% if request.path == '/trades/' %}active{% endif %}" aria-current="page"
+            href="{% url 'trades' %}">Trades</a>
+        
+        {% if user.is_authenticated %}
+          <a class="nav-link" aria-current="page" href="{% url 'logout' %}">Logout</a>
+        {% else %}
+          <a class="nav-link {% if request.path == '/login/' %}active{% endif %}" aria-current="page" href="{% url 'login' %}">Login</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>
+

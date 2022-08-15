@@ -1,0 +1,54 @@
+{% load staticfiles %}
+
+{% if symbol %}
+  
+  <div class="row-info">
+    <div class="info fz-13">Price monitoring for cryptocurrency</div>
+    <div class="value fz-13"><strong>{{symbol}}</strong></div>
+  </div>
+  <div class="row-info">
+    <div class="info">Time interval</div>
+    <div class="value"><strong>{{interval}}</strong></div>
+  </div>
+  <div class="row-info">
+    <div class="info">Number of historical datapoints</div>
+    <div class="value"><strong>{{limit}}</strong></div>
+  </div>
+  <div class="row-info mb-3">
+    <div class="info">Min. price to monitor</div>
+    <div class="value"><strong>{{min_price}}</strong></div>
+  </div>
+
+  <div class="row-info">
+    <div class="fz-13">Real time price info</div>
+  </div>
+  <div class="row-info mb-1">
+    <div class="info">open :</div>
+    <div class="value" id="price-open"><strong></strong></div>
+  </div>
+  <div class="row-info mb-1">
+    <div class="info">high :</div>
+    <div class="value" id="price-high"><strong></strong></div>
+  </div>
+  <div class="row-info mb-1">
+    <div class="info">low :</div>
+    <div class="value" id="price-low"><strong></strong></div>
+  </div>
+  <div class="row-info mb-1">
+    <div class="info">close :</div>
+    <div class="value" id="price-close"><strong></strong></div>
+  </div>
+  
+  </div>
+  <div id="candlestick-chart"
+      data-symbol="{{symbol}}"
+      data-minprice="{{min_price}}"
+      data-interval="{{interval}}"
+      data-dataarray="{{data}}"
+      data-dataminarray="{{data_min}}"></div>
+  <script src="{% static 'js/candleStick.js' %}"></script>
+
+
+
+
+{% endif %}

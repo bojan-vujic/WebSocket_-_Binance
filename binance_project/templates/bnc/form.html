@@ -1,0 +1,47 @@
+{% load staticfiles %}
+
+<style>
+  .form {
+    width: 50%;
+    /* max-width: 600px; */
+    margin: 0 auto 0 40px;
+  }
+  
+  #monitor-price {
+    width: 130px;
+    margin: 0 14px 0 auto;
+  }
+</style>
+
+
+<h5>Enter symbol and time interval for price monitoring:</h5>
+<form class="form" method="POST"
+ hx-post="{% url 'price_monitoring' %}">
+  {% csrf_token %}
+  <div class="row mb-1">
+    <label for="symbol" class="col-sm-2 mr-5 col-form-label col-form-label-sm">Symbol</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control form-control-sm" id="symbol" placeholder="e.g. BTCUSDT (default)">
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <label for="interval" class="col-sm-2 col-form-label col-form-label-sm">Interval</label>
+    <div class="col-sm-10">
+      <select class="form-control form-control-sm mb-2" id="interval">
+        <option disabled selected>Time interval</option>
+        <option>1m</option>
+        <option>3m</option>
+        <option>5m</option>
+        <option>15m</option>
+        <option>30m</option>
+        <option>1h</option>
+        <option>2h</option>
+      </select>
+    </div>
+
+    <button id="monitor-price" class="btn btn-outline-secondary">Monitor price</button>
+  </div>
+
+</form>
+

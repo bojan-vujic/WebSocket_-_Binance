@@ -1,0 +1,8 @@
+django==3.1.14
+argon2-cffi
+django-widget_tweaks
+django-formtags
+#django-extensions
+
+websocket
+websocket-client==1.2.3

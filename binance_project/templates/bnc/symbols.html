@@ -1,0 +1,30 @@
+
+<div id="new-symbols">
+
+  {% if new_symbols %}
+    <h3>{{title}}</h3>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col" class="col-md-1">#</th>
+          <th scope="col" class="col-md-2">Symbol</th>
+          <th scope="col" class="col-md-2">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for symbol in new_symbols %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{symbol.symbol}}</td>
+            <td>{{symbol.price}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  {% else %}
+    <h3>{{title}}</h3>
+  {% endif %}
+
+</div>

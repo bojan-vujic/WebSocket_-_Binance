@@ -1,0 +1,39 @@
+
+
+{% load staticfiles %}
+
+{% if symbol %}
+
+  <div class="row-info">
+    <div class="info fz-13">Price monitoring for cryptocurrency</div>
+    <div class="value fz-13"><strong>{{symbol}}</strong></div>
+  </div>
+  <div class="row-info mb-3">
+    <div class="info">Min. price to monitor</div>
+    <div class="value"><strong>{{min_price}}</strong></div>
+  </div>
+
+  <div class="row-info">
+    <div class="fz-13">Real time price info</div>
+  </div>
+  <div class="row-info mb-1">
+    <div class="info">Current price :</div>
+    <div class="value" id="price-open"><strong></strong></div>
+  </div>
+  <div class="row-info mb-1">
+    <div class="info">Quantity :</div>
+    <div class="value" id="quantity"><strong></strong></div>
+  </div>
+
+
+  <div id="trades-chart"
+    data-symbol="{{symbol}}"
+    data-minprice="{{min_price}}">
+  </div>
+
+
+
+  <script src="{% static 'js/trades.js' %}"></script>
+
+
+{% endif %}

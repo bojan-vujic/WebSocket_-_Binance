@@ -1,0 +1,43 @@
+{% extends "main/base.html" %}
+{% load staticfiles %}
+
+{% block body_block %}
+
+<div class="display-5 mb-5 text-center">Trade Streams</div>
+
+<form class="binance-form" method="POST" hx-post="{% url 'trades_monitoring' %}" hx-target="#candlestick-info-chart">
+
+  {% csrf_token %}
+  <h5>Enter some inputs for the websocket stream</h5>
+  <div class="row mb-1">
+    <div class="col-sm-12">
+      <div class="input-group input-group-sm panel">
+        <span class="input-group-addon col-form-label-sm">Symbol</span>
+        <input type="text" class="form-control" name="symbol" placeholder="e.g. BTCUSDT (default)"
+          title="Cryptocurrency symbol" />
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-1">
+    <div class="col-sm-12">
+      <div class="input-group input-group-sm panel">
+        <span class="input-group-addon col-form-label-sm">Min. price</span>
+        <input type="number" min="0" class="form-control text-sm" name="price" title="Min. price to monitor."
+          placeholder="e.g. 24300" step="any" />
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <button id="monitor-price" class="btn btn-outline-secondary btn-sm">Monitor price</button>
+  </div>
+
+</form>
+
+<div id="candlestick-info-chart">
+  {% include 'bnc/trades-partial.html' %}
+</div>
+
+
+{% endblock %}
