@@ -73,6 +73,6 @@ On the button click, it will fetch the hystorical data for a given symbol and in
 
 ##### **Trade streams**
 
-Similar to the candlestick streams, upon the button click it will start the websocket streaming the real-time data from binance api and also generate the chart with current price (area shaded) and minimal price that you set within input settings. Once the current price is above the minimal price, the minimal price div will be collored green and a short harph sound will be played, indicating that you can for instance start traging.
+Similar to the candlestick streams, upon the button click it will start the websocket streaming the real-time data from binance api and also generate the chart with current price (area shaded) and minimal price that you set within input settings. Once the current price is above the minimal price, the minimal price div will be collored green and a short harph sound will be played, indicating that you can for instance start trading.
 
 <img width="700" src="imgs/img-5.png" />
