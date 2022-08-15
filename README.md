@@ -67,11 +67,11 @@ Once you login, you can check for the latest criptocurrency symbols. For the pur
 Define several input variables (described in the Console part).
 On the button click, it will fetch the hystorical data for a given symbol and interval for the last **limit** points and then will start the websocket streaming the data and updating the graph in the real-time.
 
-<img width="500" src="imgs/img-4.png" />
+<img width="700" src="imgs/img-4.png" />
 
 
 ##### **Trade streams**
 
 Similar to the candlestick streams, upon the button click it will start the websocket streaming the real-time data from binance api and also generate the chart with current price (area shaded) and minimal price that you set within input settings. Once the current price is above the minimal price, the minimal price div will be collored green and a short harph sound will be played, indicating that you can for instance start traging.
 
-<img width="500" src="imgs/img-5.png" />
+<img width="700" src="imgs/img-5.png" />
