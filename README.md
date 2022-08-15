@@ -12,6 +12,7 @@ python -m venv myenv
 Activate myenv (windows):
 ```
 myenv\Scripts\activate
+pip install -r requirements.txt
 ```
 
 Start the script:
