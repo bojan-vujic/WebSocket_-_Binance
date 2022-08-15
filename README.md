@@ -37,7 +37,7 @@ They are self-explanatory.
 
 Django app demonstrating solutions for both parts is within directory **binance_project**.
 I'm hosting the app with pythonanywhere, you can visit and play around.
-[I'm an inline-style link](https://www.google.com)
+[https://BinanceStream.pythonanywhere.com](https://BinanceStream.pythonanywhere.com)
 
 To start the app, create virtual environment:
 
