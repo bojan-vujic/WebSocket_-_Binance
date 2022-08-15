@@ -55,7 +55,7 @@ python manage.py runserver
 
 ##### **Index page**
 
-It will ask you to login. You can do so using the **username** : JerryTheMouse and **password** : django 123.
+It will ask you to login. You can do so using the **username** : JerryTheMouse and **password** : django123.
 
 <img width="300" src="imgs/img-2.png" />
 
